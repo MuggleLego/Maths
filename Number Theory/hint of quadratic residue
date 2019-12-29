@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+
+void test(int n){
+  int p=11%n;
+  for(int i=1;i<=p;i++){
+          int tmp=(i*i)%p;
+      printf("%d^2 mod %d = %d\n",i,p,tmp);}
+}
+
+int main(){
+        int n;
+        scanf("%d",&n);
+        test(n);
+        return 0;
+}
