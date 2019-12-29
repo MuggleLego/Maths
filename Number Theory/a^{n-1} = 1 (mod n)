@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<math.h>
+//input:integer n for range (1,n)
+//function:find all the a,b \in (1,n) that satisfy a^{b-1} \equiv 1\pmod{b}
+//where b is a composite
+
+int power(int a,int b){
+        int res=1;
+        while(b){
+                if(b&1)
+                        res*=a;
+                a*=a;
+                b>>=1;
+        }
+        return res;
+}
+
+int is_prime(int n){
+        if(n==1)
+                return 0;
+        for(int i=2;i<=sqrt(n);i++)
+                if(!(n%i))
+                        return 0;
+        return 1;
+}
+
+int main(){
+        int a;
+        scanf("%d",&a);
+
+        for(int i=2;i<=a;i++){
+                for(int j=2;j<=a;j++){
+                        if(power(i,j-1)%j==1 && !is_prime(j) && i%j)
+                                printf("%d^%d = %d (mod %d)\n",i,j-1,1,j);
+                }
+        }
+        return 0;
+}
