@@ -1,4 +1,5 @@
 **Number Theory**
+- GCD and XGCD
 - multiplicative inverse
 - CRT
 - perfect square of modulus
