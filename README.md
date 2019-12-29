@@ -1,10 +1,11 @@
 **Number Theory**
 - multiplicative inverse
 - CRT
-- perfect square of modulus (TBD)
-- quadratic residue (TBD)
+- perfect square of modulus
+- quadratic residue 
 
 **Linear Algebra**
+- matrix transpose (TBD)
 - matrix multipication (TBD)
 - Guassian elimination
 - LU decomposition 
