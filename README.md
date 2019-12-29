@@ -16,6 +16,7 @@
 - Guassian elimination
 - LU decomposition 
 - GR decomposition (TBD)
-- find_determinant (TBD)
+- pivot formula to find determinant
+- big formula to find determinant (TBD)
 - find_eigenvalue (TBD)
 - singular value decomposition (TBD)
