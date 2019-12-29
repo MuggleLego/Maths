@@ -1,4 +1,9 @@
 **Number Theory**
+- is_square
+- is_prime
+- Fast exponentiation
+- Euler's Phi function
+- Fibonacci number
 - GCD and XGCD
 - multiplicative inverse
 - CRT
