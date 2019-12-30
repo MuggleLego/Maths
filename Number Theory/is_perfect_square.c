@@ -2,13 +2,13 @@
 
 #include<stdio.h>
 
-int isSquare(int n){
+int is_square(int n){
         if(n<0)
                 return 0;
-        else if(n==0 || n==1)
+        else if(!n)
                 return 1;
         else{
-                for(int i=1;i<n/2;i++){
+                for(int i=1;i*i<=n;i++){
                          if (i*i==n)
                                 return 1;
         }
@@ -18,7 +18,7 @@ int isSquare(int n){
 int main(){
         int n;
         scanf("%d",&n);
-        if(isSquare(n)==1)
+        if(is_square(n)==1)
                 printf("true\n");
         else
                 printf("false\n");
