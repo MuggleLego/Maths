@@ -2,6 +2,7 @@
 - is_square
 - is_prime
 - Fast exponentiation
+- Fast modulus exponentiation
 - Euler's Phi function
 - Fibonacci number
 - GCD and XGCD
@@ -19,5 +20,7 @@
 - GR decomposition (TBD)
 - pivot formula to find determinant
 - big formula to find determinant (TBD)
+- diagonalize (TBD)
+- Fast matrix exponentiation (TBD)
 - find_eigenvalue (TBD)
 - singular value decomposition (TBD)
