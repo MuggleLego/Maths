@@ -1,4 +1,5 @@
-//input:a matrix and the number of its rows and cols
+//date:2019.12.28
+//input:a matrix and its size
 //function:Gaussian-elimination
 
 #include<stdio.h>
