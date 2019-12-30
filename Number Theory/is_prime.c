@@ -1,3 +1,4 @@
+//date:2019.12.30
 //input:an integer n
 //function:determine whether n is a prime number
 
