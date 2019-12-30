@@ -12,9 +12,10 @@
 
 **Linear Algebra**
 - matrix transpose (TBD)
-- matrix multipication (TBD)
+- matrix multipication
+- find inverse matrix (TBD)
 - Guassian elimination
-- LU decomposition 
+- LU decomposition (TBD)
 - GR decomposition (TBD)
 - pivot formula to find determinant
 - big formula to find determinant (TBD)
