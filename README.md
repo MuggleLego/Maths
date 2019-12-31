@@ -14,7 +14,8 @@
 **Linear Algebra**
 - matrix transpose 
 - matrix multipication
-- find inverse matrix (TBD)
+- eliminarion to find inverse matrix (TBD)
+- use cofactor to find inverse matrix (TBD)
 - Guassian elimination
 - LU decomposition 
 - GR decomposition (TBD)
