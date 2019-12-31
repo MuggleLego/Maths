@@ -12,11 +12,11 @@
 - quadratic residue 
 
 **Linear Algebra**
-- matrix transpose (TBD)
+- matrix transpose 
 - matrix multipication
 - find inverse matrix (TBD)
 - Guassian elimination
-- LU decomposition (TBD)
+- LU decomposition 
 - GR decomposition (TBD)
 - pivot formula to find determinant
 - big formula to find determinant (TBD)
