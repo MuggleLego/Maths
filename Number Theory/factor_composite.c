@@ -35,9 +35,30 @@ void print_node(node* dummy){
         printf("\n");
 }
 
+//is_prime
+int sieve_of_Eratosthenes(int n){
+        int* tmp=(int*)malloc(sizeof(int)*(n+1));
+        for(int i=2;i<=n;i++)
+                tmp[i]=1;
+        for(int p=2;p*p<=n;p++){
+                if(tmp[p]==1){
+                        for(int i=2*p;i<=n;i+=p){
+                                if(i==n)
+                                        return 0;
+                                tmp[i]=0;
+                        }
+                }
+        }
+        int res=tmp[n];
+        free(tmp);
+        return res;
+}
+
 //let p be the smallest prime factor of n
 //this function find p^k where p^k is a factor of n too
 int aux_factor(int n){
+        if(sieve_of_Eratosthenes(n)) //prime is the only factor of itself(except for 1)
+                return n;
         int res=1;
         for(int i=2;i*i<=n;i++){
                 if(!(n%i)){
@@ -51,3 +72,20 @@ int aux_factor(int n){
         return res;
 }
 
+//store  factors in a link-list
+node* factorization(int n){
+        node* dummy=new_node(0);
+        while(n!=1){
+                head_insert(dummy,aux_factor(n));
+                n/=aux_factor(n);
+        }
+        return dummy;
+}
+
+int main(){
+        int n;
+        scanf("%d",&n);
+        node* dummy=factorization(n);
+        print_node(dummy);
+        return 0;
+}
