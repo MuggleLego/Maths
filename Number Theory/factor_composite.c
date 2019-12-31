@@ -1,6 +1,6 @@
 //date:2019.12.31
 //input:a positive integer n
-//function:factor n into the product of the power of primes
+//function:factor n into the product of the power of primes,store those factors in a link-list
 
 #include<stdlib.h>
 #include<stdio.h>
