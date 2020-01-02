@@ -1,6 +1,7 @@
 //date:2019.12.31
 //input:a positive integer n
 //function:factor n into the product of the power of primes,store those factors in a link-list
+//a very very ugly version :(
 
 #include<stdlib.h>
 #include<stdio.h>
@@ -36,37 +37,36 @@ void print_node(node* dummy){
 }
 
 //is_prime
-int sieve_of_Eratosthenes(int n){
+int filter(int n){
         int* tmp=(int*)malloc(sizeof(int)*(n+1));
         for(int i=2;i<=n;i++)
                 tmp[i]=1;
         for(int p=2;p*p<=n;p++){
-                if(tmp[p]==1){
-                        for(int i=2*p;i<=n;i+=p){
-                                if(i==n)
+                if(tmp[p]){
+                        for(int i=2;i*p<=n;i++){
+                                if(i*p==n)
                                         return 0;
                                 tmp[i]=0;
                         }
                 }
         }
-        int res=tmp[n];
         free(tmp);
-        return res;
+        return 1;
 }
 
 //let p be the smallest prime factor of n
 //this function find p^k where p^k is a factor of n too
 int aux_factor(int n){
-        if(sieve_of_Eratosthenes(n)) //prime is the only factor of itself(except for 1)
+        if(filter(n)) //prime is the only factor of itself(except for 1)
                 return n;
         int res=1;
         for(int i=2;i*i<=n;i++){
-                if(!(n%i)){
+                if(!(n%i)){  //find the smallest factor
                         while(!(n%i)){
-                                n/=i;
-                                res*=i;
+                                n/=i;  
+                                res*=i;  //find the largest factor with the power of i
                         }
-                        break;
+                        break; //find one is enough
                 }
         }
         return res;
