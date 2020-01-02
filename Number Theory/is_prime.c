@@ -17,30 +17,29 @@ int is_prime(int n){
 }
 
 //Sieve of Eratosthenes
-int sieve_of_Eratosthenes(int n){
+int filter(int n){
         int* tmp=(int*)malloc(sizeof(int)*(n+1));
         for(int i=2;i<=n;i++)
                 tmp[i]=1;
         for(int p=2;p*p<=n;p++){
-                if(tmp[p]==1){
-                        for(int i=2*p;i<=n;i+=p){
-                                if(i==n)
+                if(tmp[p]){
+                        for(int i=2;i*p<=n;i++){
+                                if(i*p==n)
                                         return 0;
-                                tmp[i]=0;
+                                tmp[i*p]=0;
                         }
                 }
         }
-        int res=tmp[n];
         free(tmp);
-        return res;
+        return 1;
 }
 
 int main(){
         int n;
         scanf("%d",&n);
-        if(sieve_of_Eratosthenes(n))
-                printf("yes\n");
+        if(filter(n))
+                printf("True\n");
         else
-                printf("no\n");
+                printf("False\n");
         return 0;
 }
