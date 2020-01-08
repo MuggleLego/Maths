@@ -1,5 +1,5 @@
 //date:2019.12.31
-//input:a positive integer n
+//input:a positive integer n(n>1)
 //function:factor n into the product of the power of primes,store those factors in a link-list
 //a very very ugly version :(
 
