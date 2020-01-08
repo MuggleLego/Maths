@@ -37,27 +37,20 @@ void print_node(node* dummy){
 }
 
 //is_prime
-int filter(int n){
-        int* tmp=(int*)malloc(sizeof(int)*(n+1));
-        for(int i=2;i<=n;i++)
-                tmp[i]=1;
-        for(int p=2;p*p<=n;p++){
-                if(tmp[p]){
-                        for(int i=2;i*p<=n;i++){
-                                if(i*p==n)
-                                        return 0;
-                                tmp[i]=0;
-                        }
-                }
+int is_prime(int n){
+        if(n==1)
+                return 0;
+        for(int i=2;i*i<=n;i++){
+                if(!(n%i))
+                        return 0;
         }
-        free(tmp);
         return 1;
 }
 
 //let p be the smallest prime factor of n
 //this function find p^k where p^k is a factor of n too
 int aux_factor(int n){
-        if(filter(n)) //prime is the only factor of itself(except for 1)
+        if(is_prime(n)) //prime is the only factor of itself(except for 1)
                 return n;
         int res=1;
         for(int i=2;i*i<=n;i++){
