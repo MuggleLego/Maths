@@ -16,28 +16,10 @@ int is_prime(int n){
         return 1;
 }
 
-//Sieve of Eratosthenes
-int filter(int n){
-        int* tmp=(int*)malloc(sizeof(int)*(n+1));
-        for(int i=2;i<=n;i++)
-                tmp[i]=1;
-        for(int p=2;p*p<=n;p++){
-                if(tmp[p]){
-                        for(int i=2;i*p<=n;i++){
-                                if(i*p==n)
-                                        return 0;
-                                tmp[i*p]=0;
-                        }
-                }
-        }
-        free(tmp);
-        return 1;
-}
-
 int main(){
         int n;
         scanf("%d",&n);
-        if(filter(n))
+        if(is_prime(n))
                 printf("True\n");
         else
                 printf("False\n");
