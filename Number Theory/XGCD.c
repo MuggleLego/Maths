@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 //input:integers a and b
-//output:the greatest commom divisor d and two integers x and y which satisfy
-//the equation:xa+yb=d;
+//output:the greatest commom divisor d and Bezout coefficient x,y which satisfy:ax+by=d
 
 
 int* XGCD(int a,int b){
