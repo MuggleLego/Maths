@@ -17,12 +17,12 @@ int min(int a,int b){
 }
 
 int gcd(int a,int b){
-    if(!a) return b;
-    if(!b) return a;
-    if(!(a&1) && !(b&1)) return gcd(a>>1,b>>1)>>1;
-    else if(!(a&1)) return gcd(a>>1,b);
-    else if(!(b&1)) return gcd(a,b>>1);
-    else return gcd(abs(a-b)>>1,min(a,b)); 
+    if(!a) return b;//base case
+    if(!b) return a;//base case
+    if(!(a&1) && !(b&1)) return gcd(a>>1,b>>1)>>1;//case 1
+    else if(!(a&1)) return gcd(a>>1,b);//case 2
+    else if(!(b&1)) return gcd(a,b>>1);//case 2
+    else return gcd(abs(a-b)>>1,min(a,b)); //case 3
 }
 
 int main(){
