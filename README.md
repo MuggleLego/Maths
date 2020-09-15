@@ -25,3 +25,6 @@
 - Fast matrix exponentiation (TBD)
 - find_eigenvalue (TBD)
 - singular value decomposition (TBD)
+
+**Gadget**
+- Permutation
