@@ -3,7 +3,7 @@
 //output:gcd(a,b)
 //case1:a,b are evens,gcd(a,b)=2*gcd(a/2,b/2)
 //case2:only a or only b is even,suppose a is even b is odd,gcd(a,b)=gcd(a/2,b)
-//proof:suppose gcd(a,b)=d,a=md,d is odd,m is even.So a/2=md/2,m/2 is an integer,so d \mid a/2;
+//proof:suppose gcd(a,b)=d,a=md,so d is odd,m is even.So a/2=md/2,m/2 is an integer,so d \mid a/2;
 //case3:a,b are odds,and a>=b,gcd(a,b)=gcd((a-b)/2,b)
 //proof:suppose gcd(a,b)=d,a=md,b=nd,then m,n must be odds.(a-b)/2=(m-n)d/2.m-n must be even,so (m-n)/2 is an integer.So d \mid (a-b)/2.
 
