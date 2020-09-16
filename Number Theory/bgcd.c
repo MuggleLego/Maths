@@ -25,15 +25,15 @@ void swap(int* a,int* b){
 int rec_bin_gcd(int a,int b){
     if(!a) return b;//base case
     if(!b) return a;//base case
-    if(!(a&1) && !(b&1)) return gcd(a>>1,b>>1)>>1;//case 1
-    else if(!(a&1)) return gcd(a>>1,b);//case 2
-    else if(!(b&1)) return gcd(a,b>>1);//case 2
-    else return gcd(abs(a-b)>>1,min(a,b)); //case 3
+    if(!(a&1) && !(b&1)) return rec_bin_gcd(a>>1,b>>1)<<1;//case 1
+    else if(!(a&1)) return rec_bin_gcd(a>>1,b);//case 2
+    else if(!(b&1)) return rec_bin_gcd(a,b>>1);//case 2
+    else return rec_bin_gcd(abs(a-b)>>1,min(a,b)); //case 3
 }
 
 int iter_bin_gcd(int a,int b){
     int k=0;
-    while((a|b)&1==0){
+    while(!(a&1) && !(b&1)){
         a>>=1;
         b>>=1;//if a,b are evens
         k++;//gcd(a,b)=2^k*gcd(a>>k,b>>k)
@@ -54,6 +54,6 @@ int iter_bin_gcd(int a,int b){
 int main(){
     int a,b;
     scanf("%d%d",&a,&b);
-    printf("%d\n",gcd(a,b));
+    printf("%d %d\n",iter_bin_gcd(a,b),rec_bin_gcd(a,b));
     return 0;
 }
