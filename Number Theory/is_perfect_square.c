@@ -3,16 +3,7 @@
 #include<stdio.h>
 
 int is_square(int n){
-        if(n<0)
-                return 0;
-        else if(!n)
-                return 1;
-        else{
-                for(int i=1;i*i<=n;i++){
-                         if (i*i==n)
-                                return 1;
-        }
-        return 0;
+        return (n>0) && (n^(n-1));
         }
 }
 int main(){
