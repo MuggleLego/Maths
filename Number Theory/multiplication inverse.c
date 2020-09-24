@@ -16,9 +16,9 @@ int positive_inverse(int a,int b){
                 u1=v1-q*u1;u3=v3-q*u3;
                 v1=tmp1;v3=tmp3;
         }
-        if(v1<0)
+        while(v1<0){
                 v1+=b;
-
+        }
         return v1;
 }
 
