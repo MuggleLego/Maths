@@ -1,8 +1,19 @@
-//date:2020.1.3
-//input:positive integer a,b,n
-//output:a^b mod n(less than n)
-//use Euler's theory
+//date:2020.10.15
+//input: int a,exp,n
+//output:a^exp mod p
+//algorithm:repeated square,O(lg(exp))
 
-//assume p is a prime
-int modulus_exp(int a,int b,int p){
-  
+int power(int a, int exp, int n)
+{
+    int res = 1;
+    while (exp)
+    {
+        if (exp & 1)
+        {
+            res = (res * a) % n;
+        }
+        a = (a * a) % n;
+        exp >>= 1;
+    }
+    return res;
+}
