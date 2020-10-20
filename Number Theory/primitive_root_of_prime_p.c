@@ -2,7 +2,6 @@
 //input:a prime p
 //output:the smallest primitive root of p,which is also the generator of Z_p*
 
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -26,6 +25,7 @@ int *sieve(int p)
     return table;
 }
 
+
 //use an array to store prime factors of integer n(not include n itself)
 int *prime_factor(int n)
 {
@@ -33,7 +33,7 @@ int *prime_factor(int n)
     int *table = sieve(n);
     for (int i = 0; i < n; i++)
     {
-        res[i] = 0;
+        res[i] = 0;//initialize,to mark unused space
     }
     int top = 0;
     for (int i = 2; i < n; i++)
@@ -46,6 +46,7 @@ int *prime_factor(int n)
     free(table);
     return res;
 }
+
 
 //compute a^exp mod n by repeated square
 int power(int a, int exp, int n)
@@ -63,6 +64,21 @@ int power(int a, int exp, int n)
     return res;
 }
 
+//input:relative primes a and p
+//output:if a is a primitive root of p
+//In other words,to see if the order of a is p-1 under Z_p*
+int is_root(int a,int p){
+    int* pf=prime_factor(p-1);//list prime factors
+    int i=0;
+    while(pf[i]){
+        if(power(a,(p-1)/pf[i],p)==1){//order of a smaller than p-1
+            return 0;
+        }
+        i++;
+    }
+    return 1;
+}
+
 //given a prime p
 //find the smallest primitive root of p
 int root(int p)
@@ -71,16 +87,28 @@ int root(int p)
     int res;
     for (res = 2; res < p; res++)
     { //gcd(res,p)==1
-        int flag = 1;
-        for (int i = 0; pf[i]; i++)
-        {
-            if (power(res, pf[i], p) == 1)
-            { //the order of a is smaller than p-1
-                flag = 0;
-                break;
-            }
-        }
-        if (flag)
-            return res;
+        if(!is_root(res,p)) continue;
+        break;
     }
+    return res;
+}
+
+
+
+int main()
+{
+    int *prime = sieve(10000); //find prime in 1 to 10000
+    int max = 0;
+    for (int i = 2; i < 10000; i++)
+    {
+        if (!prime[i]) //i a composite
+            continue;
+        if (root(i) >= max)
+        {
+            max = root(i);
+            printf("%d:%d\n", i, root(i));
+        }
+    }
+    printf("%d\n", max);
+    return 0;
 }
