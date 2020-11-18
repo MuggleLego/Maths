@@ -20,22 +20,18 @@ int inverse(int a,int b){
         return v1;
 }
 
-int crt(int* a,int* m,int n){
-        int sigma=1;
-        for(int k=0;k<n;k++)
-               sigma*=*(m+k);
-        int sum=0;
-        for(int i=0;i<n;i++){
-                int tmp=1;
-                for(int j=0;j<n;j++){
-                        if(j!=i){
-                                tmp*=*(m+j);
-                        }
-                }
-        int inv=inverse(tmp,*(m+i));
-        sum+=(tmp*inv*(*(a+i)))%sigma;
+int crt(int *a, int *m, int n){
+        int sigma = 1;
+        for (int k = 0; k < n; k++)
+                sigma *= *(m + k);
+        int sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+                int tmp = sigma / *(m + i);
+                int inv = inverse(tmp, *(m + i));
+                sum += (tmp * inv * (*(a + i))) % sigma;
         }
-        return sum%sigma;
+        return sum % sigma;
 }
 
 int main(){
